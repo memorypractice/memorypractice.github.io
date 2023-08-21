@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Memorization Helper</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Memorization Helper</h1>
+        <p class="prompt">Enter what you want to memorize!</p>
+        <textarea id="inputText" placeholder="Type your passage here..."></textarea>
+        <input type="range" id="removeCount" min="1" max="10" value="1">
+        <div class="buttons">
+            <button id="removeLetters">Remove Letters</button>
+            <button id="removeWords">Remove Words</button>
+            <button id="removeLines">Remove Lines</button>
+            <button id="firstLetters">First Letters</button>
+        </div>
+        <p id="outputText"></p>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
