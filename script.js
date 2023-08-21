@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const removeWordsBtn = document.getElementById('removeWords');
     const removeLinesBtn = document.getElementById('removeLines');
     const firstLettersBtn = document.getElementById('firstLetters');
-    const revertTextBtn = document.getElementById('revertText');
     const removeCountInput = document.getElementById('removeCount');
     
     let originalInput = '';
@@ -14,7 +13,6 @@ document.addEventListener('DOMContentLoaded', function() {
         removeWordsBtn.disabled = true;
         removeLinesBtn.disabled = true;
         firstLettersBtn.disabled = true;
-        revertTextBtn.disabled = true;
     }
     
     function enableButtons() {
@@ -22,7 +20,6 @@ document.addEventListener('DOMContentLoaded', function() {
         removeWordsBtn.disabled = false;
         removeLinesBtn.disabled = false;
         firstLettersBtn.disabled = false;
-        revertTextBtn.disabled = false;
     }
 
     function updateInput(updatedText) {
@@ -82,43 +79,26 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     removeLettersBtn.addEventListener('click', function() {
-        originalInput = inputText.value;
-        currentInput = originalInput;
         disableButtons();
         const removedText = removeRandomLetters(inputText.value, removeCountInput.value);
         updateInput(removedText);
     });
 
     removeWordsBtn.addEventListener('click', function() {
-        originalInput = inputText.value;
-        currentInput = originalInput;
         disableButtons();
         const removedText = removeRandomWords(inputText.value, removeCountInput.value);
         updateInput(removedText);
     });
 
     removeLinesBtn.addEventListener('click', function() {
-        originalInput = inputText.value;
-        currentInput = originalInput;
         disableButtons();
         const removedText = removeRandomLines(inputText.value, removeCountInput.value);
         updateInput(removedText);
     });
 
     firstLettersBtn.addEventListener('click', function() {
-        originalInput = inputText.value;
-        currentInput = originalInput;
         disableButtons();
-        const updatedText = inputText.value.replace(/(\S)\S*/g, '$1');
+        const updatedText = inputText.value.replace(/\b\w/g, match => match.toUpperCase());
         updateInput(updatedText);
-    });    
-    
-
-    revertTextBtn.addEventListener('click', function() {
-        outputText.textContent = ''; // Clear the output
-        currentInput = originalInput; // Update the current input
-        editTextBtn.style.display = 'block';
-        revertTextBtn.style.display = 'none';
     });
-    
 });
