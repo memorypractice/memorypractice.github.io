@@ -97,8 +97,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     firstLettersBtn.addEventListener('click', function() {
-        disableButtons();
-        const updatedText = inputText.value.replace(/\b\w/g, match => match.toUpperCase());
-        updateInput(updatedText);
+    disableButtons();
+    const updatedText = inputText.value.replace(/(\S)\S*/g, '$1');
+    updateInput(updatedText);
     });
 });
